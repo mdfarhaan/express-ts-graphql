@@ -5,6 +5,7 @@ import cors from "cors";
 import morgan from "morgan";
 import config from "./config";
 import APIroutes from "./api";
+import db from "./shared/database/db";
 
 const PORT = config.PORT || 5000;
 
@@ -19,6 +20,8 @@ export const startServer = async () => {
   app.use(cors());
   app.use(morgan("dev"));
   app.use(express.json());
+
+  await db();
 
   await apolloServer.start();
   apolloServer.applyMiddleware({ app: app, path: "/graphql" });
