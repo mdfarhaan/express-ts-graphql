@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "start": "npx tsc -w",
+    "start": "node build/server",
     "build": "tsc",
     "lint": "eslint . --ext .ts",
     "dev": "nodemon src/server.ts"
